@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/DecisionTechPriceCalc/bin/Debug/netcoreapp3.1
+/.vs/DecisionTechPriceCalc
+/DecisionTechPriceCalc/obj
+/DecisionTechPriceCalc.Tests/bin/Debug/netcoreapp3.1
+/DecisionTechPriceCalc.Tests/obj
