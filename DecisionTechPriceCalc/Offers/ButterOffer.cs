@@ -29,7 +29,7 @@ namespace DecisionTechPriceCalc
             {
                 if (breadDiscountsIds.Contains(pricedProductInBasket.Id))
                 {
-                    for (int i = 0; i < totalNumberOfBreadsOfferCanBeAppliedTo ; i++)
+                    for (int i = 0; i < totalNumberOfBreadsOfferCanBeAppliedTo; i++)
                         pricedProductInBasket.AddDiscount(new FiftyPercentOffDiscount(_log));
                     updatedList.Add(pricedProductInBasket);
                 }

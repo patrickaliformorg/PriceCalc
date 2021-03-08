@@ -3,7 +3,7 @@
     public class FreeItemDiscount : IDiscount
     {
         private ILog _log;
-        public FreeItemDiscount (ILog log)
+        public FreeItemDiscount(ILog log)
         {
             _log = log;
         }
@@ -13,7 +13,7 @@
         {
             decimal priceReduction = -pricedProductInBasket.Price;
             _log.LogMessage($"Discount {Name} applied to {pricedProductInBasket.Product.Name}:{pricedProductInBasket.Id} - price:{pricedProductInBasket.Price}, reduction:{priceReduction}");
-            return priceReduction ;
+            return priceReduction;
         }
 
     }
