@@ -1,20 +1,20 @@
 ﻿namespace DecisionTechPriceCalc
 {
-    public class FiftyPercentOffDiscount : IDiscount
+    public class FreeItemDiscount : IDiscount
     {
         private ILog _log;
-        public FiftyPercentOffDiscount(ILog log)
+        public FreeItemDiscount (ILog log)
         {
             _log = log;
         }
-        public string Name => "Fifty Percent Discount";
+        public string Name => "Free Item Discount";
 
         public decimal GetDiscount(ProductInBasket pricedProductInBasket)
         {
-            var priceReduction = pricedProductInBasket.Price / 2;
+            decimal priceReduction = -pricedProductInBasket.Price;
             _log.LogMessage($"Discount {Name} applied to {pricedProductInBasket.Product.Name}:{pricedProductInBasket.Id} - price:{pricedProductInBasket.Price}, reduction:{priceReduction}");
-            return -priceReduction;
+            return priceReduction ;
         }
-    }
 
+    }
 }

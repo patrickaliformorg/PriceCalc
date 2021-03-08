@@ -20,7 +20,7 @@ namespace DecisionTechPriceCalc
 
             var totalDiscount = productInBasket.Select(product => GetTotalDiscount(product)).Sum();
             // _logger.LogMessage("Log details of originalPrice and discount here")
-            return totalPriceBeforeDiscounts - totalDiscount;
+            return totalPriceBeforeDiscounts + totalDiscount;
         }
 
 
