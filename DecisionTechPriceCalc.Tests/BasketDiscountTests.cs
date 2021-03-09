@@ -53,8 +53,17 @@ namespace DecisionTechPriceCalc.Tests
             TestLogger butterOfferLogger = new TestLogger();
             TestLogger milkOfferLogger = new TestLogger();
 
-            IOffer butterOffer = new ButterOffer(butterOfferLogger);
-            IOffer milkOffer = new MilkOffer(milkOfferLogger);
+            IOffer butterOffer =
+                new NItemsOfFirstProductDeterminesDiscountOnSecond(butterOfferLogger,
+                "Butter",
+                "Bread",
+                (noOfDiscounts) => new FiftyPercentOffDiscount(butterOfferLogger, noOfDiscounts));
+
+            IOffer milkOffer = 
+                new NthItemDiscount(milkOfferLogger,
+                "Milk",
+                4,
+                (noOfDiscounts) => new FreeItemDiscount(milkOfferLogger, noOfDiscounts));
 
             Basket basket = new Basket(new IOffer[] { butterOffer, milkOffer });
 
@@ -66,6 +75,11 @@ namespace DecisionTechPriceCalc.Tests
 
             Assert.That(result, Is.EqualTo(expectedPrice));
         }
+
+        // **************************************************************************
+        // Further tests to write, tests to assert that the expected logs are written
+        // Tests for some edge cases, such as a negative quantity of items
+        // Tests for the results with just one offer
 
     }
 

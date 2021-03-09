@@ -6,10 +6,4 @@ namespace DecisionTechPriceCalc
     {
         IEnumerable<ProductInBasket> ApplyOffer(IEnumerable<ProductInBasket> productsInBasket);
     }
-
-    public class OfferDetails
-    {
-        public string OfferName { get; }
-        public string OfferDescription { get; }
-    }
 }

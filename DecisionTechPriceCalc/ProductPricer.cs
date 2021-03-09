@@ -26,9 +26,7 @@ namespace DecisionTechPriceCalc
 
         internal static decimal GetTotalDiscount(ProductInBasket productInBasket)
         {
-            // Create a list of the discounts
             List<decimal> discountedItems = productInBasket.Discounts.Select(discount => discount.GetDiscount(productInBasket)).ToList();
-            // Sum all the discounts
             return discountedItems.Sum();
         }
 
